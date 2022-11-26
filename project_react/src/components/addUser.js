@@ -28,10 +28,9 @@ class AddUser extends React.Component {
                 <label htmlFor="isHappy">Счастлив?</label>
                 <input type="checkbox" id="isHappy" onChange={(e) => this.setState({ isHappy: e.target.checked })} />
                 <button type="button" onClick={() => {
-                    this.myForm.reset()
                     this.userAdd = {
-                        firstname: this.state.first_name,
-                        lastname: this.state.last_name,
+                        first_name: this.state.first_name,
+                        last_name: this.state.last_name,
                         email: this.state.email,
                         age: this.state.age,
                         isHappy: this.state.isHappy
@@ -39,6 +38,7 @@ class AddUser extends React.Component {
                     if (this.props.user)
                         this.userAdd.id = this.props.user.id
                     this.props.onAdd(this.userAdd)
+                    this.myForm.reset()
                 }}>Добавить</button>
             </form>
         )
